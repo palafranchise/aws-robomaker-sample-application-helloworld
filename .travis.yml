@@ -6,22 +6,22 @@ notifications:
     on_success: change
     on_failure: always
     recipients:
-      - ros-contributions@amazon.com
-      - travis-build@platform-notifications.robomaker.aws.a2z.com
+    - ros-contributions@amazon.com
+    - travis-build@platform-notifications.robomaker.aws.a2z.com
 env:
   matrix:
-    - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=7
+  - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=7
   allow_failures:
-    - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=9
+  - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=9
   global:
-    - SA_NAME=hello-world
-    - SA_PACKAGE_NAME=hello_world_robot
-    - NO_TEST=true
-    - GH_USER_NAME="travis-ci"
-    - GH_USER_EMAIL="travis@travis-ci.org"
-    - AWS_DEFAULT_REGION=us-west-2
-    - secure: "Ddxd7VrTOo6nM443+MYc5+NSeNUIZa9gkxPMoEExTBJD9jil9ulVI4aB51XRx2THaYUCah0oiQNeYBZAmvt4ECqT4KZ8FYwN1JykIsnPfIU4rHS099yxmBBvYRXzhr6iV0bcldFwZx6U4W4AIddjaLW2IlXmrPzzageSkSchdcFZfa6pxqQpE3w6eC16LCIVq5CDp93dUiRGtzFGNx/uaZjxlsFy/Jhq6xnsk/x38qT/tT+uVfUuTsz/ChhXbXz41k6U7OQi+EMjZ/LPOuuEulAhkpqXWYBsKi7dac0pb4rOpikCosN+8ZA1zuLEZKiVDdRvmbUorV2uHnomGEydTCft2cQkXeFkAM9wiVFrOcwYyBILnJQBiXpO75qmrvbVmOmFxCKnh58rk4PGfpnet42F9i/ob6P2O/XbmE0vtm7w6R462nk8HrvrJoTQGYrPeRIfotKL/p6hfqCHMRlqHivyRZpfmy8+UICJFtI3T+KzcRXBNMc40zGIUZwZeX2lYDxE195Uv5oKXZY2PEwm4hbuPcjHC8hu4R4DYS1NNX5ryyfhvX1DdiLVziJ0v5O2wrDXitZXfuyAP1BWBEpdAMMhSXZuRX6Uf2NAP20HMkApLz+nELeybEdsjsw896FRXLQpvNzgykZnIbFSCI2YI3ggymWPyPOLTcMm2kRjxq0="
-    - secure: "k+jgq4Lup+qsTHhVyhhr9OhA2NqpiFHBbFVQBLaXxdUXOhf6pVYBPJCgIBIqPL6utAyUVX+yBIDNvUx/89T22RCKCZSvVMuOgQO41PxTECdKuA68KftHHN8xdBugR4K1rW+ywLalnmjz8p+I5xeaePbNEDmjnkIRiFjaaVVLPO3luxIcntN6BUKe8BzgJFimbbsRkAB2wDyQNqND6tfNoFDsjSEN4AIYhI/min/7TRgHZ04Orz265+c9K+QcrN2NgBjz2rADM9xCdSadGp94BOUflEXzfrQRA85Y/FnDMln4XD6ngi/jJ4Z4q3bKTJsAO9/gq9G0bhzUOrql/vLGV2XFs6EujZVs1GX4WOB7XqQOZYhGvpYhJ54N4tiH3+ZCZ8iFLM2f+ugasyJc5a5TEY8WoFfLAmAPpIHO3k5LeBx/lwwSaCddxPzCC1yPrmRl2nvY5+doCiL+4cjOS0Np6gaJXwS8YjJ2QFasVe7JAWGtl+BlDsL25Rp/GE3HQvBSikdAd9QX297L2wDhATaMWhWCg0KnaFEG7yLrgqNXXleGgCU33dh4BzcN3TMV+zqXEnsjiJsfeTbZxZ+i/07QLEFlgoJDqToD7rpkYEhoKpe5Qf1k3mQ/HITaUN7txykuJ3pjx5UmfIRyyGPz2nZ0zT1NsuP84oRfMZ2cNUbFadg="
+  - SA_NAME=hello-world
+  - SA_PACKAGE_NAME=hello_world_robot
+  - NO_TEST=true
+  - GH_USER_NAME="travis-ci"
+  - GH_USER_EMAIL="travis@travis-ci.org"
+  - AWS_DEFAULT_REGION=us-west-2
+  - secure: r7ITVOGxqbHTRi0kkZw9AbkrQmiS+wnLrQrmpsygrc0RTPHm92VdV98SqPt/4gSn8UaCfZ1YqWFDgk/z5mKD4SX5bUbyhGrd94vWNJML6rwbHwzRoWGvo+ZnafDXgduyuMcMdwOu7N0XwaqOhhwsgpi/NRZjBFg4mcPQms6nE890JG7d2G9es7mY6z4bQ3sjWnIqq7EV317Iy7ZzZIRTLcN1/xCCgPk88sHV395F7DPxQW7YEOn4C7qq67zJIvO5TyZOul1CHI7SbtkwfN8NZQFuO7wQlLiQ5yL37kDLyHRNs9pp+5S++WAcm7BUXIyhyi/OAZ17h0Z5GaMc+AXibi9UDML7iLNIEJID1NnLd6crb2VmjPoEkbqommlMkNM70R9OuBmViot7j//XM8E0b3uoZyvCx7JHRXyPnzqSFX9/dlHTIfHw1CT65c6pQWwJyWyEsy7G5Y4K18yZC6VefGvmX41ejm4qPtbrpkCayWIKnmqWt7ZI3qwyHCQaD9Sdy5nNv5OvCOZdzOrUFcW5BPu6WXCkV6zfI0lqNxY8dbR0Ifl34S1jBdCLvk+jZXOW0tTDM76/77QroZno3FTQSc0/xeCqtRoUT/4WgNHdBZxN04QiURLZhFUNg+qfjIVeQvIsfRDSEL+Qi8NZbO5MFzyN+kpxVqlBqITRxezLGpM=
+  - secure: m0OH3tsk+Ba7bBWGzIbaZZlMDW8KbRgHbBclj4ImTMPZw+3CP5mCpgSRIIKr04H1vlR5028xP+vSxL7I2l+cIKEWx1CAQofHJg1bOmTUxqoAmMDY7OdU3vQs2BclEZO3YNbpl18DrSE8KsCJ5j5rvPJnl1SOEfzTXRK2wwiVazVcV0laj7871/MiRjPH+Zv2P+YOQzJ/xaI4nV1jXAm5gE/YdT0mTlgR8XV9JiLgfmy5mcAfbim6m4c5+HjvQxpatLc4jSVx6jn59kZmWNDVni+UyukN3J9mhwpIlg2Wduts0+kN6sgOYTL8ryQAugf/RMMKTTcHNXfMLjij6byMqJ6shQ+qr8LQjI7xDHS197PqbvFSCqBIMdqmTx7Jt3K7LLdaWpyFhNJZbKktqA8Oa2wB+ptNNVbeRek0cCawrs8dRFAkrGwlYRqHAulpPuXVpRSzpCDnBS4N+ZL9u/66o1fMD86oE1q38LF1UjlvFfMFWunT6UPiOVsFuAqWXiZ5b8L2H974YxFls1HvqqSWwe8SwFTv4Syi8Ft1Kid2wSo/5Zflyho0DYcbieRdl1LGlHOF3V/2Gyyzj+W5YNQt/IK9ZFcdNz4IPEHuPaSa2UWnNFIJQfZYuUNTzJEY7dzocAoPq5wM0/aB6GK8AMToSQtCYjJOD/XS5TTsiHf2FLc=
 before_install:
 - pip install --user awscli
 - openssl aes-256-cbc -K $encrypted_e9b424f4a194_key -iv $encrypted_e9b424f4a194_iv
