@@ -9,32 +9,29 @@ notifications:
     - ros-contributions@amazon.com
     - travis-build@platform-notifications.robomaker.aws.a2z.com
 env:
-  global:
-    - SA_NAME=hello-world
-    - SA_PACKAGE_NAME=hello_world_robot
-    - NO_TEST=true
-    - GH_USER_NAME="travis-ci"
-    - GH_USER_EMAIL="travis@travis-ci.org"
-    - AWS_DEFAULT_REGION=us-west-2
-    - secure: r7ITVOGxqbHTRi0kkZw9AbkrQmiS+wnLrQrmpsygrc0RTPHm92VdV98SqPt/4gSn8UaCfZ1YqWFDgk/z5mKD4SX5bUbyhGrd94vWNJML6rwbHwzRoWGvo+ZnafDXgduyuMcMdwOu7N0XwaqOhhwsgpi/NRZjBFg4mcPQms6nE890JG7d2G9es7mY6z4bQ3sjWnIqq7EV317Iy7ZzZIRTLcN1/xCCgPk88sHV395F7DPxQW7YEOn4C7qq67zJIvO5TyZOul1CHI7SbtkwfN8NZQFuO7wQlLiQ5yL37kDLyHRNs9pp+5S++WAcm7BUXIyhyi/OAZ17h0Z5GaMc+AXibi9UDML7iLNIEJID1NnLd6crb2VmjPoEkbqommlMkNM70R9OuBmViot7j//XM8E0b3uoZyvCx7JHRXyPnzqSFX9/dlHTIfHw1CT65c6pQWwJyWyEsy7G5Y4K18yZC6VefGvmX41ejm4qPtbrpkCayWIKnmqWt7ZI3qwyHCQaD9Sdy5nNv5OvCOZdzOrUFcW5BPu6WXCkV6zfI0lqNxY8dbR0Ifl34S1jBdCLvk+jZXOW0tTDM76/77QroZno3FTQSc0/xeCqtRoUT/4WgNHdBZxN04QiURLZhFUNg+qfjIVeQvIsfRDSEL+Qi8NZbO5MFzyN+kpxVqlBqITRxezLGpM=
-    - secure: m0OH3tsk+Ba7bBWGzIbaZZlMDW8KbRgHbBclj4ImTMPZw+3CP5mCpgSRIIKr04H1vlR5028xP+vSxL7I2l+cIKEWx1CAQofHJg1bOmTUxqoAmMDY7OdU3vQs2BclEZO3YNbpl18DrSE8KsCJ5j5rvPJnl1SOEfzTXRK2wwiVazVcV0laj7871/MiRjPH+Zv2P+YOQzJ/xaI4nV1jXAm5gE/YdT0mTlgR8XV9JiLgfmy5mcAfbim6m4c5+HjvQxpatLc4jSVx6jn59kZmWNDVni+UyukN3J9mhwpIlg2Wduts0+kN6sgOYTL8ryQAugf/RMMKTTcHNXfMLjij6byMqJ6shQ+qr8LQjI7xDHS197PqbvFSCqBIMdqmTx7Jt3K7LLdaWpyFhNJZbKktqA8Oa2wB+ptNNVbeRek0cCawrs8dRFAkrGwlYRqHAulpPuXVpRSzpCDnBS4N+ZL9u/66o1fMD86oE1q38LF1UjlvFfMFWunT6UPiOVsFuAqWXiZ5b8L2H974YxFls1HvqqSWwe8SwFTv4Syi8Ft1Kid2wSo/5Zflyho0DYcbieRdl1LGlHOF3V/2Gyyzj+W5YNQt/IK9ZFcdNz4IPEHuPaSa2UWnNFIJQfZYuUNTzJEY7dzocAoPq5wM0/aB6GK8AMToSQtCYjJOD/XS5TTsiHf2FLc=
   matrix:
-    - ROS_DISTRO="kinetic" ROS_VERSION="1" GAZEBO_VERSION="7"
-matrix:
-  allow_failures:
-    - env: ROS_DISTRO="kinetic" ROS_VERSION="1" GAZEBO_VERSION="9"
+  - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=7
+  - ROS_DISTRO=kinetic ROS_VERSION=1 GAZEBO_VERSION=9
+  global:
+  - SA_NAME=hello-world
+  - SA_PACKAGE_NAME=hello_world_robot
+  - NO_TEST=true
+  - GH_USER_NAME="travis-ci"
+  - GH_USER_EMAIL="travis@travis-ci.org"
+  - AWS_DEFAULT_REGION=us-west-2
+  - secure: wN10Zgx2qHC8iS4PMKEjNKvpToDOQ6YcjmPDgkjZBoQ1ZnPNCA9QW38J7YBUXTbx2ub/9bpCGvJCrxGxeGnyvtipCJxCITN92yTUP6HToE7QZGDNZ5uNjdS+BfNpgcFLVHcwTMtGWuyOENoe3d1kvG/edExZ4rZtqBAuVK3IpDt3iJTSsQSTk7kOB1Elzfn169Z766GkwUrQorByWI53484xOO/URxq0BURB6KuNW/QdyBnMcZs1WNlXQYgTZOWH1uEn5kYaIzz6X44hrX+GUSguQrlaiH3gy3TyYshghQr5a2qnTKQ4CSVcXCprBKJwlt1S1gTb2ISXlYcQGiTP0rHOMw4J3tTBIJA7y2PFDBJrcbuqu56QIdu3mnfsEk9u3PIWUTvm/ZeqqOSlOA5Si5nUR5AaAYyNuzIgqxfriHsbto70t+l0aYzZ76ExlgLjFu/q8LD6NYNT+h7Qgf7KjhXm55iUd5h68QMofjTRett+eYlGVYBrhKII0Q1VbHOiMA/+aHbzNNKP/h4A8atwudsD8VTldOgDtspU2nlRaT9Qnfwj1qrrNe2Gao6tH8c4at3sLueTPJYfQAJSkcS2Z1yoS1BGDhRoAxiB1Ou6OwuiNO75kwCG9FMXxviUUe80OchZtH/z2t9n2zgBcwX1wyZdxAgnf0Ox0Jz+O8lAaYQ=
+  - secure: W3evZpeGXxTOAqQ6rSjAPA6EyhUnAgaAZNOXajBf2YUzyIxhscJn+rDurFWJ2P2jcNJnc1enaSPLHUCocwjoiMd9avO1q6m/KgsrN9x6vKB7BnWylxMp5f3GtDEbbVIfuZ7hR2p/P50XSy5Q1T0OsdBJ/me8HjkgYHtqKT2DlFwjtL2q+1sBVyT+uIYlgMF9yb4VqWtYK3GobG6j2zzw3m7KQ9fvIA5n0Abm7FjXvlocAkXBdhiyu+yvTO8g9vvTg1GZ3wMCoyahzKUXVXVP/WMaRSlAHQWPa/11pgZUK3hkUCxP4CrR6XjT+pdmdW5ZbscImaVqrMTiKnFC6h6xOPZTpl7Iztagd+9ey4RnzjsXKyBT0Bkyy4hI/jQQPnjNcJoeIxbkLXFYP6n1ptZk1dxSxLNzJNbsMw2dr9vtKThfTRxYvtbUwlzrW6031LbhTMEB3EjvJgr0eXxjxbRMpqD8s8345kjPvydk0o2PYCjtHR0vpLdJQ1SNJqLO31JJMMmQFbPCI/DWlTc97brhN2r8QpAxXteqrmucjl155oId9Ea+9/KwGPZYLUhJPAWHJVPYp4MC77Mt2qqvyn/Aks+i7ikYIbmjGldxz9uocmbHm7rantV/3uMS/xdvwLpm+TGUuTKslByxl87+yfxnDrhfg5/lPTG4ituESmPSJgM=
 before_install:
-  - pip install --user awscli
-  - openssl aes-256-cbc -K $encrypted_e9b424f4a194_key -iv $encrypted_e9b424f4a194_iv
-    -in github_deploy.pem.enc -out github_deploy.pem -d
+- pip install --user awscli
+- openssl aes-256-cbc -K $encrypted_e9b424f4a194_key -iv $encrypted_e9b424f4a194_iv
+  -in github_deploy.pem.enc -out github_deploy.pem -d
 install:
-  - git clone -b development https://github.com/aws-robotics/travis-scripts.git .ros_ci
+- git clone -b abby-dev https://github.com/aws-robotics/travis-scripts.git .ros_ci
 script:
-  - ". .ros_ci/configure_cc_git_credentials.sh"
-  - ". .ros_ci/add_tag.sh"
-  - ".ros_ci/ce_build.sh"
+- ". .ros_ci/add_tag.sh"
+- ".ros_ci/ce_build.sh"
 before_deploy:
-  - ". .ros_ci/before_deploy.sh"
+- ". .ros_ci/before_deploy.sh"
 deploy:
 - provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"
@@ -43,12 +40,12 @@ deploy:
   local_dir: shared
   skip_cleanup: true
   wait-until-deployed: true
-  upload-dir: travis/${SA_NAME}/${ROS_DISTRO}/gazebo${GAZEBO_VERSION}
   on:
     branch: abby-dev
+  upload-dir: travis/${SA_NAME}/${ROS_DISTRO}/gazebo${GAZEBO_VERSION}
 - provider: script
   script: bash .ros_ci/codepipeline_deploy.sh
   on:
     branch: abby-dev
 after_deploy:
-  - ".ros_ci/post_deploy.sh"
+- ".ros_ci/post_deploy.sh"
