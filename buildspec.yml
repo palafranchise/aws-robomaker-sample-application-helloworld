@@ -1,7 +1,7 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: hello-world-pipeline
+    S3_BUCKET: lafranch-sam-build-artifacts
     APP_NAME: hello-world
     ROBOT_WS: ./robot_ws
     SIMULATION_WS: ./simulation_ws
