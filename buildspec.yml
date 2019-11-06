@@ -1,7 +1,7 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: hello-world-code-build-artifacts
+    S3_BUCKET: awsrobomakerhelloworld-155675116001-bundlesbucket-8yvibyu9so43
     APP_NAME: hello-world
     ROBOT_WS: ./robot_ws
     SIMULATION_WS: ./simulation_ws
@@ -31,5 +31,6 @@ phases:
     commands: 
       - COLCON_LOG_PATH="$ROBOT_WS/logs" colcon bundle --base-paths "$ROBOT_WS" --build-base "$ROBOT_WS/build" --install-base "$ROBOT_WS/install" --bundle-base "$ROBOT_WS/bundle"
       - COLCON_LOG_PATH="$SIMULATION_WS/logs" colcon bundle --base-paths "$SIMULATION_WS" --build-base "$SIMULATION_WS/build" --install-base "$SIMULATION_WS/install" --bundle-base "$SIMULATION_WS/bundle"
-      - aws s3 cp $ROBOT_WS/bundle/output.tar s3://$S3_BUCKET/bundles/$APP_NAME/x86/robotApp.tar 
-      - aws s3 cp $SIMULATION_WS/bundle/output.tar s3://$S3_BUCKET/bundles/$APP_NAME/x86/simulationApp.tar
+      - aws s3 cp $ROBOT_WS/bundle/output.tar s3://$S3_BUCKET/hello-world-robot.tar
+      - aws s3 cp $SIMULATION_WS/bundle/output.tar s3://$S3_BUCKET/hello-world-simulation.tar
+      - aws lambda invoke --function-name batch-simulations-scenarios-batchsimulations-8XFPSKEKYPJK --payload '{"wait":5,"scenarios":{"BasicSlowTest":{"robotEnvironmentVariables":{"TIME_TEST_LENGTH_IN_SECONDS":"60","SPEED_IN_RADIANS_PER_SECOND":"0.2"},"simEnvironmentVariables":{}},"LongFastTest":{"robotEnvironmentVariables":{"TIME_TEST_LENGTH_IN_SECONDS":"120","SPEED_IN_RADIANS_PER_SECOND":"0.5"},"simEnvironmentVariables":{}}},"simulations":[{"scenarios":["BasicSlowTest","LongFastTest"],"params":{"failureBehavior":"Fail","iamRole":"arn:aws:iam::707829246062:role/AWSRoboMakerHelloWorld-155675116-SimulationJobRole-GYIFCXCLQBRG","maxJobDurationInSeconds":600,"outputLocation":{"s3Bucket":"awsrobomakerhelloworld-155675116001-bundlesbucket-8yvibyu9so43","s3Prefix":"output"},"robotApplications":[{"application":"arn:aws:robomaker:us-west-2:707829246062:robot-application/AWSRoboMakerHelloWorld-1556751160018_AK05pSapMO/1556751258574","applicationVersion":"$LATEST","launchConfig":{"launchFile":"rotate.launch","packageName":"hello_world_robot"}}],"simulationApplications":[{"application":"arn:aws:robomaker:us-west-2:707829246062:simulation-application/AWSRoboMakerHelloWorld-1556751160018_F4cPBJH4z/1556751257859","applicationVersion":"$LATEST","launchConfig":{"launchFile":"empty_world_test.launch","packageName":"hello_world_simulation"}}],"vpcConfig":{"assignPublicIp":true,"securityGroups":["sg-a91fddd1"],"subnets":["subnet-b80cc7df","subnet-4ec62b07","subnet-b0df89e8"]}}}]}'
